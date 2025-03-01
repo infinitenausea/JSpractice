@@ -5,9 +5,9 @@ let rollback = 20;
 let fullPrice = 20000;
 let adaptive = true;
 
-console.log(title);
-console.log(fullPrice);
-console.log(adaptive);
+console.log(typeof(title));
+console.log(typeof(fullPrice));
+console.log(typeof(adaptive));
 console.log(screens.length);
 console.log("Стоимость верстки экранов: " + screenPrice + " рублей");
 console.log("Стоимость разработки сайта: " + fullPrice + " рублей");
