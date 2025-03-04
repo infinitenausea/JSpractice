@@ -1,49 +1,60 @@
 'use strict'
 
-
+//Объявление переменных
 let title = prompt("Как называется Ваш проект?");
-console.log(title);
 let screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
-console.log(screens);
 let screenPrice = +prompt("Сколько будет стоить данная работа?", "10000");
-console.log(screenPrice);
 let adaptive = confirm("Нужен ли адаптив на сайте?");
-console.log(adaptive);
 let service1 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service1);
 let servicePrice1 = +prompt("Сколько будет стоить данная работа?");
-console.log(servicePrice1);
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service2);
 let servicePrice2 = +prompt("Сколько будет стоить данная работа?");
-console.log(servicePrice2);
 let rollback = 20;
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-let fullPriceSaleTen = fullPrice - ((fullPrice / 100) * 10);
-let fullPriceSaleFive = fullPrice - ((fullPrice / 100) * 5);
-let servicePercentPrice = fullPrice - (fullPrice*(rollback/100));
-let servicePercentPriceSaleTen = fullPriceSaleTen - (fullPriceSaleTen*(rollback/100));
-let servicePercentPriceSaleFive = fullPriceSaleFive - (fullPriceSaleFive*(rollback/100));
+let fullPrice;
+let servicePercentPrice;
+let allServicePrices;
 
+//Объявление функций
+const showTypeOf = function(variable) {
+    console.log(variable, typeof variable);
+};
 
-if (fullPrice >= 30000) {
-    console.log("Стоимость верстки экранов: " + screenPrice + " рублей");
-    console.log("Стоимость разработки сайта: " + fullPrice + " рублей");
-    console.log("Даём скидку в 10%");
-    console.log("Процент отката посреднику за работу: " + (fullPriceSaleTen*(rollback/100)) + " рублей");
-    console.log("Итоговая стоимость за вычетом отката: " + Math.ceil(servicePercentPriceSaleTen) + " рублей");
-} else if (fullPrice >= 15000 && fullPrice < 30000) {
-    console.log("Стоимость верстки экранов: " + screenPrice + " рублей");
-    console.log("Стоимость разработки сайта: " + fullPrice + " рублей");
-    console.log("Даём скидку в 5%");
-    console.log("Процент отката посреднику за работу: " + (fullPriceSaleFive*(rollback/100)) + " рублей");
-    console.log("Итоговая стоимость за вычетом отката: " + Math.ceil(servicePercentPriceSaleFive) + " рублей");
-} else if (fullPrice > 0 && fullPrice < 15000) {
-    console.log("Стоимость верстки экранов: " + screenPrice + " рублей");
-    console.log("Стоимость разработки сайта: " + fullPrice + " рублей");
-    console.log("Скидка не предусмотрена");
-    console.log("Процент отката посреднику за работу: " + (fullPrice*(rollback/100)) + " рублей");
-    console.log("Итоговая стоимость за вычетом отката: " + Math.ceil(servicePercentPrice) + " рублей");
+const getRollbackMessage = function(price) {
+if (price >= 30000) {
+    return"Даём скидку в 10%";
+} else if (price >= 15000 && price < 30000) {
+    return"Даём скидку в 5%";
+} else if (price >= 0 && price < 15000) {
+    return"Скидка не предусмотрена";
 } else 
-    console.log("Что-то пошло не так");
+    return"Что-то пошло не так";
+};
 
+const getAllServicePrices = function(servicePrice1, servicePrice2) {
+    return servicePrice1 + servicePrice2;
+};
+allServicePrices = getAllServicePrices(servicePrice1,servicePrice2);
+
+function getFullPrice(screenPrice, allServicePrice) {
+    return screenPrice + allServicePrice;
+};
+fullPrice = getFullPrice(screenPrice, allServicePrices);
+
+const getTitle = function(title) {
+    return title.trim()[0].toUpperCase() + title.trim().slice(1).toLowerCase();
+};
+
+const getServicePercentPrice = function (fullPrice, rollback) {
+    return fullPrice - (fullPrice*(rollback/100));
+};
+servicePercentPrice = getServicePercentPrice(fullPrice,rollback);
+
+//Вызов функций, функциональная часть
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
+
+//Мусорная часть
+console.log(screens);
+console.log(getRollbackMessage(fullPrice));
+console.log(getServicePercentPrice(fullPrice,rollback));
