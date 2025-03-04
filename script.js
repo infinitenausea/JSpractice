@@ -1,7 +1,7 @@
 'use strict'
 
-let weekEng = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-let weekRus = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+const weekEng = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const weekRus = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
 
 let lang = prompt("Language?", "en or ru?")
 
@@ -21,7 +21,7 @@ switch(lang2) {
     break;
 };
 
-let ArrayTwoLanguages = {
+const ArrayTwoLanguages = {
     en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     ru: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
 };
