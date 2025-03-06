@@ -18,14 +18,25 @@ let servicePrice;
 const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 }
+const getNumericInput = function (promptMessage) {  //Функция для учёта пробелов у числа и значения null
+    let input;
+    let parsedNumber;
+    
+    do {
+        input = prompt(promptMessage);    
+        if (input !== null) {
+            parsedNumber = +(input.trim());
+        } else {
+            parsedNumber = NaN;
+        }
+    } while (!isNumber(parsedNumber));
+    return parsedNumber;
+}
 
 const asking = function () {
     title = prompt("Как называется Ваш проект?", "Проект");
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
-
-    do {screenPrice = prompt("Сколько будет стоить данная работа?");
-    } while (!isNumber(screenPrice));
-    screenPrice = +screenPrice;
+    screenPrice = getNumericInput("Сколько будет стоить данная работа?");
     adaptive = confirm("Нужен ли адаптив на сайте?");
 }
 
@@ -37,16 +48,12 @@ const getAllServicePrices = function () {
 
         if (i === 0) {
             service1 = prompt("Какой дополнительный тип услуги нужен?");
-            do {
-                price = prompt("Сколько будет стоить данная работа?");
-            } while (!isNumber(price));
+            price = getNumericInput("Сколько будет стоить данная работа?");
         } else if (i === 1) {
             service2 = prompt("Какой дополнительный тип услуги нужен?");
-            do {
-                price = prompt("Сколько будет стоить данная работа?");
-            }while (!isNumber(price));
+            price = getNumericInput("Сколько будет стоить данная работа?");
         }
-        sum += +price;
+        sum += price;
     }
     return sum;
 };
