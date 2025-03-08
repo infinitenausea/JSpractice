@@ -90,8 +90,6 @@ appData.start()
 
 
 
-// console.log(servicePercentPrice)
-// console.log(getServicePercentPrice());
 console.log("Стоимость верстки экранов: " + appData.screenPrice + " рублей");
 console.log("Стоимость разработки сайта: " + appData.fullPrice + " рублей");
 console.log("Процент отката посреднику за работу: " + (appData.fullPrice*(appData.rollback/100)) + " рублей");
