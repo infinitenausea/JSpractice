@@ -22,7 +22,7 @@ week.forEach(function(day, index){
     style += 'font-weight: bold; ';
   }
   
-  if (index >= 5) { // Суббота и воскресенье
+  if (index <= 4) { // Суббота и воскресенье
     style += 'font-style: italic; ';
   }
   
