@@ -20,14 +20,14 @@ const appData = {
     },
     asking: function () {
         appData.title = appData.getStringInput("Как называется Ваш проект?", "Проект");
-        for (let i = 0; i < 2; i++) {
+
+            appData.screens = Array(2).fill(null).reduce((acc, _, i) => {
             let name = appData.getStringInput("Какие типы экранов нужно разработать?");
             let price = 0;
             price = appData.getNumericInput("Сколько будет стоить данная работа?");
-
-            appData.screens.push({id: i, name: name, price: price});
-        };
-        
+            return [...acc, {id: i, name: name, price: price}];
+            }, []);
+            
         for (let i = 0; i < 2; i++) {
             let name = appData.getStringInput("Какой дополнительный тип услуги нужен?");
             let price = 0;
