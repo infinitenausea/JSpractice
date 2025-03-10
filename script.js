@@ -57,12 +57,12 @@ const appData = {
     isNumber: function(num) {
         return !isNaN(parseFloat(num)) && isFinite(num);
     },
-    getNumericInput: function (promptMessage) { 
+    getNumericInput: function (promptMessage, defaultValue) { 
         let input;
         let parsedNumber;
         
         do {
-            input = prompt(promptMessage);    
+            input = prompt(promptMessage, defaultValue);    
             if (input !== null) {
                 parsedNumber = +(input.trim());
             } else {
@@ -71,7 +71,7 @@ const appData = {
         } while (!appData.isNumber(parsedNumber));
         return parsedNumber;
     },
-    getStringInput: function (promptMessage, defaultValue = "") {
+    getStringInput: function (promptMessage, defaultValue) {
         let input;
         let inputOnlyNumbers;
 
@@ -79,7 +79,7 @@ const appData = {
             input = prompt(promptMessage, defaultValue);
 
             if (input === null) {
-                input = defaultValue;
+                input = NaN;
             };
 
             inputOnlyNumbers = appData.isNumber(input);
