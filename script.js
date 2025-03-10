@@ -23,7 +23,7 @@ const appData = {
         for (let i = 0; i < 2; i++) {
             let name = appData.getStringInput("Какие типы экранов нужно разработать?");
             let price = 0;
-                price = appData.getNumericInput("Сколько будет стоить данная работа?");
+            price = appData.getNumericInput("Сколько будет стоить данная работа?");
 
             appData.screens.push({id: i, name: name, price: price});
         };
@@ -31,9 +31,17 @@ const appData = {
         for (let i = 0; i < 2; i++) {
             let name = appData.getStringInput("Какой дополнительный тип услуги нужен?");
             let price = 0;
-                price = appData.getNumericInput("Сколько будет стоить данная работа?");
+            price = appData.getNumericInput("Сколько будет стоить данная работа?");
 
-            appData.services[name] = price
+            let uniqueKey = name;
+            let counter = 1
+
+            while (appData.services.hasOwnProperty(uniqueKey)) {
+                uniqueKey = name + "_" + counter;
+                counter++;
+            }
+
+            appData.services[uniqueKey] = price
         };
 
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
@@ -104,6 +112,7 @@ const appData = {
         console.log("Стоимость разработки сайта: " + appData.fullPrice + " рублей");
         console.log("Итоговая стоимость за вычетом отката: " + Math.ceil(appData.servicePercentPrice) + " рублей");
         console.log(appData.screens);
+        console.log(appData.services);
     }
 };
 
