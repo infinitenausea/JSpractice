@@ -1,5 +1,17 @@
 'use strict'
 
+let titleH1 = document.getElementsByTagName('h1')[0];
+let buttonCalculate = document.getElementsByClassName('handler_btn')[0];
+let buttonReset = document.getElementsByClassName('handler_btn')[1];
+let buttonPlus = document.querySelector('.screen-btn');
+let otherItemsPercent = document.querySelectorAll('.percent');
+let otherItemsNumber = document.querySelectorAll('.number');
+let inputTypeRange = document.querySelector(".rollback input[type='range']");
+let spanRangeValue = document.querySelector(".rollback span[class='range-value']");
+let totalInput = Array.from(document.getElementsByClassName('total-input'));
+let allScreenBlocks = document.querySelectorAll(".screen");
+
+
 const appData = {
     title: '',
     screens: [],
@@ -111,8 +123,8 @@ const appData = {
     logger: function () {
         console.log("Стоимость разработки сайта: " + appData.fullPrice + " рублей");
         console.log("Итоговая стоимость за вычетом отката: " + Math.ceil(appData.servicePercentPrice) + " рублей");
-        console.log(appData.screens);
-        console.log(appData.services);
+        // console.log(appData.screens);
+        // console.log(appData.services);
     }
 };
 
