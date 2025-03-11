@@ -10,20 +10,22 @@ body {
 }
 .container {
     text-align: center;
-    background-color: white;
-    padding: 2rem;
+    background-color: rgb(236, 171, 171);
+    padding: 32px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-style: double;
+    border-width: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     max-width: 600px;
     width: 90%;
 }
 .date-full {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 24px;
+    margin-bottom: 16px;
     font-weight: bold;
 }
 .date-short {
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: bold;
     color: #2c3e50;
 }

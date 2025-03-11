@@ -1,6 +1,7 @@
 // Функция для правильного склонения часов
 function getHourCase(hour) {
     // Приводим к остатку от деления на 100, чтобы правильно обрабатывать числа больше 100
+    // Защита от необычных входных данных + универсальность использования
     hour = hour % 100;
     
     // Особые случаи для чисел от 11 до 14
@@ -32,6 +33,16 @@ function getDayName(dayIndex) {
         "Среда", "Четверг", "Пятница", "Суббота"
     ];
     return days[dayIndex];
+}
+
+// Получение названия месяца
+function getMonthName(monthIndex) {
+    const months = [
+        "Января", "Февраля", "Марта", 
+        "Апреля", "Мая", "Июня", "Июля", "Августа", 
+        "Сентября", "Октября", "Ноября", "Декабря"
+    ];
+    return months[monthIndex];
 }
 
 // Функция для правильного склонения минут
@@ -85,7 +96,7 @@ function updateTime() {
     const dayName = getDayName(now.getDay());
     
     // Формат (а)
-    const fullDate = `Сегодня ${dayName}, ${day} февраля ${year} года, ${hour} ${getHourCase(hour)} ${minute} ${getMinuteCase(minute)} ${second} ${getSecondCase(second)}`;
+    const fullDate = `Сегодня ${dayName}, ${day} ${getMonthName(month-1)} ${year} года, ${hour} ${getHourCase(hour)} ${minute} ${getMinuteCase(minute)} ${second} ${getSecondCase(second)}`;
     
     // Формат (б)
     const shortDate = `${addZero(day)}.${addZero(month)}.${year} - ${addZero(hour)}:${addZero(minute)}:${addZero(second)}`;
