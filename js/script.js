@@ -1,15 +1,20 @@
 'use strict'
 
 let titleH1 = document.getElementsByTagName('h1')[0];
-let buttonCalculate = document.getElementsByClassName('handler_btn')[0];
-let buttonReset = document.getElementsByClassName('handler_btn')[1];
+let startBtn = document.getElementsByClassName('handler_btn')[0];
+let resetBtn = document.getElementsByClassName('handler_btn')[1];
 let buttonPlus = document.querySelector('.screen-btn');
-let otherItemsPercent = document.querySelectorAll('.percent');
-let otherItemsNumber = document.querySelectorAll('.number');
+let otherItemsPercent = document.querySelectorAll('.other-items.percent');
+let otherItemsNumber = document.querySelectorAll('.other-items.number');
 let inputTypeRange = document.querySelector(".rollback input[type='range']");
 let spanRangeValue = document.querySelector(".rollback span[class='range-value']");
-let totalInput = Array.from(document.getElementsByClassName('total-input'));
-let allScreenBlocks = document.querySelectorAll(".screen");
+let input = document.getElementsByClassName('total-input')[0];
+let totalCount = document.getElementsByClassName('total-input')[1];
+let totalCountOther = document.getElementsByClassName('total-input')[2];
+let fullTotalCount = document.getElementsByClassName('total-input')[3];
+let fullTotalCountRollback = document.getElementsByClassName('total-input')[4];
+
+let screens = document.querySelectorAll(".screen");
 
 
 const appData = {
