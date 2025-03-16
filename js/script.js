@@ -23,7 +23,7 @@ const appData = {
     screens: [],
     screenPrice: 0,
     adaptive: true,
-    rollback: 20,
+    rollback: 0,
     servicePricesPercent: 0,
     servicePricesNumber: 0,
     fullPrice: 0,
@@ -57,8 +57,7 @@ const appData = {
         appData.addScreens();
         appData.addServices();
         appData.addPrices();
-        // appData.getServicePercentPrice();
-
+        console.log(appData)
         // appData.logger();
         appData.showResult();
     },
